@@ -60,7 +60,7 @@ pub trait QAbstractItemModel: QObject {
     }
 }
 
-impl dyn QAbstractItemModel {
+impl dyn QAbstractItemModel + '_ {
     /// Refer to the Qt documentation of QAbstractListModel::beginInsertRows
     pub fn begin_insert_rows(&self, parent: QModelIndex, first: i32, last: i32) {
         let obj = self.get_cpp_object();
