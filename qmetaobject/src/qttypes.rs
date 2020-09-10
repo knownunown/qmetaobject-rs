@@ -920,6 +920,17 @@ impl QModelIndex {
     }
 }
 
+impl std::fmt::Debug for QModelIndex {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("QModelIndex")
+            .field("row", &self.row())
+            .field("column", &self.column())
+            .field("id", &self.id())
+            .field("is_valid", &self.is_valid())
+            .finish()
+    }
+}
+
 /// Bindings for [`qreal`][type] typedef.
 ///
 /// [type]: https://doc.qt.io/qt-5/qtglobal.html#qreal-typedef
